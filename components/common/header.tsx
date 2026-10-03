@@ -26,7 +26,10 @@ export default function Header() {
          <div className="flex gap-2 items-center">
            <NavLink href="/upload">Upload a PDF</NavLink>
            <div>Pro</div>
-           <Button>User</Button>
+           <SignInButton />
+            <UserButton />
+           <SignInButton />
+
          </div>
         ):(
          <div>

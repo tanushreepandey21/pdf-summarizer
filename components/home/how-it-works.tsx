@@ -21,7 +21,7 @@ const steps: Step[] = [
   },
 
   {
-    icon: <BrainCircuit size={64} strokeWidth={1.5} />,
+    icon: <FileOutput size={64} strokeWidth={1.5} />,
     label: 'Get Summary',
     description: 'Recieve a clear and concise summary of your document',
   },
@@ -53,10 +53,12 @@ export default function HowItWorksSection() {
             steps
           </h3>
         </div>
-        <div className="grid grid-cols-1 gap-8 max-w-6xl mx-auto relative">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto relative">
             {steps.map((step,idx)=> (
-                <div className="relative flex items-stretch">
-                <StepItem key={idx} {...step}/>
+                <div
+                key={idx} 
+                className="relative flex items-stretch">
+                <StepItem {...step}/>
 
                 {idx < steps.length -1 && (
                     <div className="hidden md block absolute top-1/2
