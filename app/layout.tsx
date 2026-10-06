@@ -1,3 +1,5 @@
+import BgGradient from "@/components/common/bg-gradient";
+
 import type { Metadata } from "next";
 import { Source_Sans_3 as FontSans, Geist } from "next/font/google";
 import './globals.css';
