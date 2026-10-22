@@ -2,10 +2,10 @@
 
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import type {SubmitEvent} from 'react';
+import type {SyntheticEvent} from 'react';
 
 interface UploadFormInputProps {
-  onSubmit: (e:SubmitEvent<HTMLFormElement>) => void;
+  onSubmit: (e:SyntheticEvent<HTMLFormElement>) => void;
 }
 
 export default function UploadFormInput({
