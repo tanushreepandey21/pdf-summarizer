@@ -74,10 +74,23 @@ const { startUpload, routeConfig } = useUploadThing(
   return;
 }
 
-const summary = await generatePdfSummary(
-  resp as [typeof resp[0]]
-);
-console.log({ summary });
+try {
+  const summary = await generatePdfSummary(
+    resp as [typeof resp[0]]
+  );
+
+  console.log({ summary });
+
+  if (!summary?.success) {
+    toast.error(summary?.message ?? "Failed to generate summary.");
+    return;
+  }
+
+  toast.success("Summary generated successfully!");
+} catch (error) {
+  console.error("PDF summarization failed:", error);
+  toast.error("Failed to generate the PDF summary.");
+}
     // Summarize the PDF using AI
     // Save the summary to the database
     // Redirect to the [id] summary page
