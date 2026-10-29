@@ -18,14 +18,15 @@ export default function Header() {
       </div>
 
       <div className="flex lg:justify-center gap-4 lg:gap-12 lg:items-center">
-        <NavLink href="/#pricing">Pricing</NavLink>
-         <SignedIn> <NavLink href="/dashboard">Your Summaries</NavLink></SignedIn>
+        <NavLink href="/dashboard" className="text-base font-semibold text-black px-2 py-1">
+         Your Summaries
+        </NavLink>
      </div>
 
      <div className="flex lg:justify-end lg">
+      <NavLink href="/upload" className="mr-3 text-black font-semibold">Upload a PDF</NavLink>
         <SignedIn>
          <div className="flex gap-2 items-center">
-           <NavLink href="/upload">Upload a PDF</NavLink>
            <div>Pro</div>
            <SignedIn> 
               <UserButton />
@@ -34,7 +35,7 @@ export default function Header() {
         </SignedIn>
           
           <SignedOut>
-           <NavLink href="/sign-in">Sign In</NavLink>
+           <NavLink href="/sign-in" className="text-black font-semibold">Sign In</NavLink>
          </SignedOut>
       </div>
 
