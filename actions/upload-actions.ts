@@ -71,6 +71,7 @@ export async function generatePdfSummary(
 
     // Generate the summary using Gemini
     const summary = await generateSummaryFromGemini(pdfText);
+    console.log("GENERATED SUMMARY:", summary);
 
     if (typeof summary !== 'string' || !summary.trim()) {
       return {
