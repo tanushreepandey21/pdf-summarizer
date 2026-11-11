@@ -9,7 +9,7 @@ import ContentSection from '@/components/summaries/content-section';
 
 const SectionTitle = ({ title }: { title: string }) => {
   return (
-    <div className="flex flex-col gap-2 mb-6 sticky top-0 pt-2 pb-4 bg-background/95 z-10">
+    <div className="flex flex-col gap-2 mb-4 pt-2 pb-2">
       <h2 className="text-3xl lg:text-4xl font-bold text-foreground text-center justify-center flex items-center gap-2">
         {title}
       </h2>
@@ -28,7 +28,9 @@ export function SummaryViewer({ summary }: { summary: string }) {
     .map((section) => section.trim())
     .filter(Boolean);
 
-  const sections = sectionBlocks.map(parseSection);
+  const sections = sectionBlocks
+  .map(parseSection)
+  .filter((s) => s.title && s.points.length > 0);
 
   const handleNext = () =>
     setCurrentSection((prev) =>
@@ -39,21 +41,22 @@ export function SummaryViewer({ summary }: { summary: string }) {
     setCurrentSection((prev) => Math.max(prev - 1, 0));
 
   return (
-    <Card
-      className="relative px-2
-        h-[500px] sm:h-[600px] lg:h-[700px]
-        w-full xl:w-[600px]
-        overflow-hidden
-        bg-linear-to-br from-background via-background/95 to-rose-500/5
-        shadow-2xl rounded-3xl
-        border border-rose-500/10"
-    >
+   <Card
+  className="
+    relative flex flex-col px-2
+    h-[min(80vh,680px)] min-h-[500px]
+    w-full max-w-[760px]
+    overflow-hidden
+    bg-linear-to-br from-background via-background/95 to-rose-500/5
+    shadow-2xl rounded-3xl
+    border border-rose-500/10"
+>
       <ProgressBar
         sections={sections}
         currentSection={currentSection}
       />
 
-      <div className="h-full overflow-y-auto scrollbar-hide pt-12 sm:pt-16 pb-20 sm:pb-24">
+      <div className="min-h-0 flex-1 overflow-y-auto scrollbar-hide pt-10 sm:pt-12 pb-20">
         <div className="px-4 sm:px-6">
 
           <SectionTitle
